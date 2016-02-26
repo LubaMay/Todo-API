@@ -17,8 +17,6 @@ app.get('/', function (req, res) {
 app.get('/todos', function (req, res) {
     var queryParams = req.query;
     var filteredTodos = todos;
-    //var body = _.pick(req.body, 'description', 'completed');
-
     var validAttributes = {};
 
 
