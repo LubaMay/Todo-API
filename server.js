@@ -61,7 +61,6 @@ app.post('/todos', function (req, res) {
     var body = _.pick(req.body, 'description', 'completed');
 
     db.todo.create(body).then(function (todo) {
-        //res.status(200).send('Todo successfully created!');
         res.json(todo.toJSON());
     },function(error) {
        res.status(400).send(error);
@@ -112,6 +111,16 @@ app.put('/todos/:id', function (req, res) {
         }
     }, function () {
         res.status(500).send();
+    });
+});
+
+app.post('/users', function (req, res){
+    var body = _.pick(req.body, 'email', 'password');
+
+    db.user.create(body).then(function (user) {
+        res.json(user.toJSON());
+    },function(error) {
+        res.status(400).send(error);
     });
 });
 
